@@ -1,0 +1,41 @@
+Ques :- Remove Element from given array
+
+Brief:-
+All Multiple occur num will be removed from the given array 
+
+Example:
+Input: nums = [3,2,2,3], val = 3
+Output: nums = [2,2]
+
+
+Constraints:
+0 <= nums.length <= 100
+0 <= nums[i] <= 50
+0 <= val <= 100
+
+********CODE*********
+
+class Solution {
+public int removeElement(int[] nums, int val) {
+    int i=0;
+    int j=0;
+ 
+    while(j < nums.length){
+        if(nums[j] != val){
+            nums[i] = nums[j];
+            i++; 
+        }
+ 
+        j++;
+    }
+ 
+    return i;
+}
+}
+
+SAMPLE OUTPUT
+
+Your input: [2,7,7,4,4,4]
+Remove element  4
+Output: [2,7,7]  
+Here all the values 4, wiil get removed from the given array 
