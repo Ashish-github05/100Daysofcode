@@ -3,6 +3,11 @@
  *** Given an integer array nums sorted in non-decreasing order,remove the duplicates in-place such that each unique element 
  appears only once. The relative order of the elements should be kept the same.
  
+Example 1:
+Input: nums = [1,1,2]
+Output: nums = [1,2]
+Explanation: Your function should return the first two elements of nums being 1 and 2 respectively.
+
 
 Constraints:
 1 <= nums.length <= 3 * 104
@@ -41,17 +46,11 @@ Output: num must be in non decreasing order // wrong input
 Input: nums = []
 Output: expected 'nums' to have 1 <= size <= 30000 but got 0
 
-
-Example 1:
-Input: nums = [1,1,2]
-Output: nums = [1,2]
-Explanation: Your function should return the first two elements of nums being 1 and 2 respectively.
-
-Example 2:
+4.
 Input: nums = [0,0,1,1,1,2,2,3,3,4]
 Output: nums = [0,1,2,3,4]
 Explanation: Your function should return the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
  
-Example 3:
+5.
 Input: nums = [1,1,0]
 Output: num must be in non decreasing order // wrong input
