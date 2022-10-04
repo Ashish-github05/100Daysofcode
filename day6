@@ -3,6 +3,8 @@ Ques :- Remove Element from given array
 Brief:-
 All Multiple occur num will be removed from the given array 
 
+Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The relative order of the elements may be changed.
+
 Example:
 Input: nums = [3,2,2,3], val = 3
 Output: nums = [2,2]
