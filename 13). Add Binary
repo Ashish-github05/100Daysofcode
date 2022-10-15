@@ -1,0 +1,49 @@
+Ques:- Add Binary
+
+Its a vey simple program Given two binary strings a and b, return their sum as a binary string.
+
+ 
+
+Example 1:
+Input: a = "11", b = "1"
+Output: "100"
+
+Example 2:
+Input: a = "1010", b = "1011"
+Output: "10101"
+ 
+
+Constraints:
+1 <= a.length, b.length <= 104
+a and b consist only of '0' or '1' characters.
+Each string does not contain leading zeros except for the zero itself.
+
+sample input/output
+
+Your input
+"11"
+"1"
+Output-"100"
+
+******************CODE*******************
+
+class Solution {
+    public String addBinary(String a, String b) {
+        int i = a.length() -1;
+        int j = b.length() -1;
+        String result ="";
+        int s = 0; // To store carry
+        while( i>=0 || j>= 0 || s==1)
+        {
+            if(i>=0)
+                s += a.charAt(i) - '0'; 
+            if(j>=0)
+                s += b.charAt(j) - '0';
+            result = (char)(s % 2 + '0') + result; 
+            s = s/2;  //update carry value
+            
+            i--;j--;
+        }
+        return result;
+    }
+}
