@@ -1,0 +1,33 @@
+Ques-  Add Digits 
+
+Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.
+add digits of a number until the number becomes a single-digit number. The problem is also known as the digit root problem.
+
+Example 1:
+Input: num = 38
+Output: 2
+Explanation: The process is
+38 --> 3 + 8 --> 11
+11 --> 1 + 1 --> 2 
+Since 2 has only one digit, return it.
+
+Constraints:-
+0 <= num <= 231 - 1
+
+Complexity Analysis-
+Time Complexity: O(1).
+Space Complexity: O(1).
+
+************CODE**************** 
+public class Solution {
+    public int addDigits(int num)
+    {
+        return num==0?0:(num%9==0?9:(num%9));
+    }
+}
+
+SAMPLE OUTPUT-
+Your input
+95318
+Output
+8
