@@ -1,0 +1,29 @@
+Ques -  Squares of a Sorted Array
+
+Platform - Leetcode
+
+Lang Used : JAVA
+
+Solution :
+
+class Solution {
+    public int[] sortedSquares(int[] A) {
+
+      int[] temp = new int[A.length];
+        int l = 0;
+        int r = A.length - 1;
+        int count = A.length - 1;
+        while (l<=r) {
+            if ((A[l]*A[l]) >= (A[r]*A[r])) {
+                temp[count] = (A[l]*A[l]);
+                l++;
+            } else if ((A[l]*A[l]) < (A[r]*A[r])) {
+                temp[count] = (A[r]*A[r]);
+                r--;
+            }
+			count--;
+        }
+        return temp;
+
+    }
+}
