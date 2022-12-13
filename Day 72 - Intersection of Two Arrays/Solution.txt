@@ -1,0 +1,45 @@
+Ques - Intersection of Two Arrays
+
+Platform : Leetcode
+
+Lang Used : JAVA
+
+Solution :
+
+public class Solution {
+    public boolean binSearch(int[] nums,int key){
+        int start=0,end=nums.length-1,mid;
+        while(start<=end){
+            mid=start+(end-start)/2;
+            if(nums[mid]==key){
+                return true;
+            } else if (nums[mid]>key){
+                end=mid-1;
+            } else {
+                start=mid+1;
+            }
+        }
+        return false;
+    }
+    
+    public int[] intersection(int[] nums1, int[] nums2) {
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        int l1 = nums1.length;
+        List<Integer> intersect = new ArrayList<Integer>();
+
+        for(int i=0;i<l1;i++){
+            if(i>0 && nums1[i]==nums1[i-1]){
+                continue;//skip same elems
+            }
+            if(binSearch(nums2,nums1[i])){
+                intersect.add(nums1[i]);
+            } 
+        }
+        int[] intersect_arr = new int[intersect.size()];
+        for(int i=0;i<intersect.size();i++){
+            intersect_arr[i] = intersect.get(i).intValue();
+        }
+        return intersect_arr;
+    }
+}
