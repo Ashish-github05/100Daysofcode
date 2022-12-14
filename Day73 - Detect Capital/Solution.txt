@@ -1,0 +1,25 @@
+Ques - Detect Capital
+
+Platform : Leetcode
+
+Lang Used : JAVA
+
+Solution:
+
+class Solution {
+    public boolean detectCapitalUse(String word) {
+        char[] temp = word.toCharArray();
+        boolean allCapitals = true;
+        boolean allLowerCase = true; 
+        boolean firstCapital = true;
+        for (int i = 0; i < temp.length; i++) {
+        	allCapitals = allCapitals && temp[i] >= 'A' && temp[i] <= 'Z';
+        	allLowerCase = allLowerCase && temp[i] >= 'a' && temp[i] <= 'z';
+            if (i == 0)
+        	    firstCapital = firstCapital && temp[i] >= 'A' && temp[i] <= 'Z';
+        	if (i > 0)
+        		firstCapital = firstCapital && temp[i] >= 'a' && temp[i] <= 'z';
+        }
+        return allCapitals || allLowerCase || firstCapital;
+    }
+}
