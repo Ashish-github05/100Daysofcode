@@ -1,0 +1,23 @@
+Ques - Monotonic Array
+
+Platform : Leetcode
+
+Lang Used : JAVA
+
+Solution :
+
+class Solution {
+    public boolean isMonotonic(int[] A) {
+        int i = 0;
+        while (i+1 < A.length && A[i+1] == A[i]) i++;
+        if (i+1 < A.length && A[i+1] > A[i]) {
+            while (i+1 < A.length && A[i+1] >= A[i]) i++;
+        }
+        else {
+            if (i+1 < A.length && A[i+1] < A[i]) {
+                while (i+1 < A.length && A[i+1] <= A[i]) i++;
+            }
+        }
+        return i+1 == A.length;
+    }
+}
