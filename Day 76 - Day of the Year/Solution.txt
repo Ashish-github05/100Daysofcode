@@ -1,0 +1,16 @@
+Ques - Day of the Year
+
+Platform - Leetcode
+
+Lang Used - JAVA
+
+Solution :
+
+import java.time.LocalDate;
+
+class Solution {
+
+	public int dayOfYear(String date) {
+		return LocalDate.parse(date).getDayOfYear();
+	}
+}
