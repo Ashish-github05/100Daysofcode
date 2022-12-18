@@ -1,0 +1,25 @@
+Ques - Backspace String Compare
+
+Platform - Leetcode
+
+Lang Used - JAVA
+
+Solution-
+
+class Solution {
+   
+ public boolean backspaceCompare(String S, String T) {
+          /** Using regex*/
+        return filter(S).equals(filter(T));
+    }
+    
+    /** Filter Backspaces*/
+ public static String filter(String x){
+        String j=x;
+        while (x.contains("#")) {
+              x = x.replaceAll("[a-z]#", "");
+             if(!j.equals(x))j=x; else break;
+        }
+        return x.replaceAll("#+([a-z])","$1");
+    }
+}
