@@ -1,0 +1,34 @@
+Ques - Reverse Only Letters
+
+Platform - Leetcode
+
+Lang Used - JAVA
+
+Solution -
+
+class Solution {
+    private boolean isAlphabet(char c) {
+        if((c >='A' && c<='Z') || (c>='a' && c<='z')) return true;
+        return false;
+    }
+    public String reverseOnlyLetters(String S) {
+        int i=0, j=S.length()-1;
+        char[] sb = S.toCharArray();
+        
+        while(i < j) {
+            if(isAlphabet(sb[i])) {
+                if(isAlphabet(sb[j])) {
+                    char temp = sb[i];
+                    sb[i++] = sb[j];
+                    sb[j--] = temp;
+                } else {
+                    j--;
+                }
+            } else {
+                i++;
+            }
+            
+        }
+        return new String(sb);
+    }
+}
