@@ -1,0 +1,35 @@
+Ques - Find Common Characters
+
+Platform - Leetcode 
+
+Lang Used - JAVA
+
+Solution -
+
+class Solution {
+    public List<String> commonChars(String[] A) {
+        Map<Character, Map<Integer, Integer>> map = new HashMap<>();
+        for (int k = 0; k < A.length; k++) {
+            String s = A[k];
+            for (int i = 0; i < s.length(); i++) {
+                Map<Integer, Integer> set = map.getOrDefault(s.charAt(i), new HashMap<>());
+                set.put(k, set.getOrDefault(k, 0) + 1);
+                map.put(s.charAt(i), set);
+            }
+        }
+        List<String> result = new ArrayList<>();
+        for (Character c : map.keySet()) {
+            if (map.get(c).size() < A.length) {
+                continue;
+            }
+            int cnt = Integer.MAX_VALUE;
+            for (Map.Entry<Integer, Integer> e : map.get(c).entrySet()) {
+                cnt = Math.min(e.getValue(), cnt);
+            }
+            for (int i = 0; i < cnt; i++) {
+                result.add(""+c);
+            }
+        }
+        return result;
+    }
+}
