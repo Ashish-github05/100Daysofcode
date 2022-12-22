@@ -1,0 +1,34 @@
+Ques - Split a String in Balanced Strings
+
+Platform - Leetcode
+
+Lang used - java 
+ 
+Solution -
+
+class Solution {
+    public int balancedStringSplit(String s) {
+        //to keep track of weight
+        int weight = 0;
+        
+        //to keep track of splits
+        int splits = 0;
+        
+        //iterate thru s
+        for (int i = 0; i < s.length(); i++) {
+            //check what this character is
+            if (s.charAt(i) == 'L') {
+                //decrement
+                weight--;
+            } else {
+                //increment
+                weight++;
+            }
+            
+            //check if weight is balanced, then split
+            if (weight == 0) splits++;
+        }
+        
+        return splits;
+    }
+}
