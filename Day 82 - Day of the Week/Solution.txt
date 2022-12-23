@@ -1,0 +1,16 @@
+Ques - Day of the Week
+
+Platform - Leetcode 
+
+Lang Used - JAVA
+
+Solution -
+
+class Solution {
+    public String dayOfTheWeek(int day, int month, int year) {
+        String[] days = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+        //intDay has range from 1 to 7 start from Monday
+        int intDay  = java.time.LocalDate.of(year,month,day).getDayOfWeek().getValue();  
+        return intDay==7?days[0]:days[intDay];
+    }
+}
