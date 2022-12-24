@@ -1,0 +1,35 @@
+Ques - N-th Tribonacci Number
+
+Platform - Platform 
+
+Lang Used - JAVA
+
+Solution -
+
+class Solution {
+    public int tribonacci(int n) {
+        int[] dp=new int[n+1];
+        return check(dp,n);
+        
+    }
+    public int check(int[] dp,int n)
+    {
+        if(n<=1)
+        {
+            return n;
+        }
+        if(n==2)
+        {
+            return 1;
+        }
+        if(dp[n]==0)
+        {
+            int s1=check(dp,n-3);
+            int s2=check(dp,n-2);
+            int s3=check(dp,n-1);
+            dp[n]=s1+s2+s3;
+        }
+        return dp[n];
+        
+    }
+}
