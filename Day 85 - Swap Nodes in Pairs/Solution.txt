@@ -1,0 +1,27 @@
+Ques - Swap Nodes in Pairs
+
+Platform - Leetcode
+
+Lang Used - JAVA
+
+Solution -
+
+public class Solution {
+    public ListNode swapPairs(ListNode head) {
+    	if (head == null || head.next == null) {
+    		return head;
+    	}
+    	ListNode temp = head;
+    	int swap = 0;
+    	while(temp.next != null) {
+    		swap = temp.val;
+    		temp.val = temp.next.val;
+    		temp.next.val = swap;
+    		temp = temp.next;
+    		if (temp.next != null) {
+    			temp = temp.next;
+    		}
+    	}
+    	return head;
+    }
+}
