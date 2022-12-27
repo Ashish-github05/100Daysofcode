@@ -1,0 +1,33 @@
+Ques - Goat Latin
+
+Platform - Leetcode
+
+lang Used - JAVA
+
+Solutions- 
+
+class Solution {
+    public String toGoatLatin(String S) {
+        String[] words = S.split(" ");
+		String result = "";
+		for (int i = 0; i < words.length; i++) {
+			String str = words[i];
+			StringBuffer sb = new StringBuffer();
+			if (Isvowel(str.charAt(0)))
+				sb.append(str + "ma");
+			else {
+				sb.append(str.substring(1) + str.charAt(0) + "ma");
+			}
+			for (int j = 0; j <= i; j++) {
+				sb.append('a');
+			}
+			result += sb.toString() + " ";
+		}
+		return result.substring(0, result.length() - 1);
+    }
+    public boolean Isvowel(Character ch) {
+		return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' ||
+         ch == 'u' || ch == 'A' || ch == 'E' || ch == 'I'
+				|| ch == 'O' || ch == 'U';
+	}
+}
