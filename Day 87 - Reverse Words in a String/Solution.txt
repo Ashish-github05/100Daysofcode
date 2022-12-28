@@ -1,0 +1,43 @@
+Ques - Reverse Words in a String
+
+Platform - Leetcode
+
+Lang Used - JAVA
+
+Solution -
+
+public class Solution {
+    public String reverseWords(String s) {
+        if (s==null) return null;
+        s = s.trim();
+        int len = s.length();
+        StringBuilder newS = new StringBuilder();
+        String s1;
+        int j=0;
+        for(int i=0;i<len;i++){
+            if(s.charAt(i)==' '){
+                if(i<len-1 && s.charAt(i+1)==' ') 
+                    continue;
+                s1 = s.substring(j,i).trim();
+                if (s1.length()==0) continue;
+                newS.append(reverseString(s1)).append(" ");
+                j=i+1;
+            }
+        }
+        s1 = s.substring(j,len).trim();
+        newS.append(reverseString(s1));
+        return newS.reverse().toString().trim();
+    }
+    
+    private String reverseString(String s){
+        char[] sArr = s.toCharArray();
+        int l=0, r=s.length()-1;
+        char t;
+        while(l<r){
+            t=sArr[l];
+            sArr[l++]=sArr[r];
+            sArr[r--]=t;
+        }
+        return new String(sArr);
+    }
+}
