@@ -1,0 +1,20 @@
+Ques - Find the Duplicate Number
+
+Platform - Leetcode
+
+Lang Used - JAVA
+
+Solution -
+
+class Solution {
+public int findDuplicate(int[] nums) {
+    int buf = 0;
+    int a = nums[0];
+    while(nums[buf] != buf) {
+        a = nums[buf];
+        nums[buf] = buf;
+        buf = a;
+    }
+    return a;
+}
+}
