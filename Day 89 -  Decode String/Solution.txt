@@ -1,0 +1,37 @@
+Ques - Decode String
+
+Platform - Leetcode
+
+Lang Used - java
+
+Solution-
+
+class Solution {
+public String decodeString(String s) {
+        StringBuilder sb = new StringBuilder();
+
+        int[] stack = new int[s.length()];
+        int base = 0, rep = 0;
+
+        for (char c : s.toCharArray()) {
+            if (c == '[') {
+                stack[base++] = rep;
+                stack[base++] = sb.length();
+                rep = 0;
+            } else if (c == ']') {
+                String dup = sb.substring(stack[--base]);
+                String tmp = "";
+                // > 1, means the origin is counted
+                rep = stack[--base];
+                while (rep-- > 1) tmp += dup;
+                // rep will be 0 here, nothing to do.
+                sb.append(tmp);
+            } else if (c < '0' || c > '9') {
+                sb.append(c);
+            } else {
+                rep = rep * 10 + c - '0';
+            }
+        }
+        return sb.toString();
+}
+    }
