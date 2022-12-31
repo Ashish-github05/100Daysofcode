@@ -1,0 +1,22 @@
+Ques - First Missing Positive
+
+Platform - Leetcode
+
+Lang Used - JAVA
+
+Solutions --
+
+class Solution {
+    public int firstMissingPositive(int[] nums) {
+        TreeSet<Integer> set = new TreeSet();
+        for(int x : nums){
+            if(x > 0) set.add(x);
+        }
+        int res = 1;
+        for(int x : set){
+            if(x==res) res++;
+            else return res;
+        }
+        return res;
+    }
+}
