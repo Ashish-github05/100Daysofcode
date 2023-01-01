@@ -1,0 +1,22 @@
+Ques - Maximum Gap
+
+Platform - Leetcode
+
+Lang Used - JAVA
+
+Solutions -
+
+class Solution {
+    public int maximumGap(int[] nums) {
+        Arrays.sort(nums);
+        int t =0;
+        if(nums.length>1){
+             for(int i=1;i<nums.length;i++){
+                if(nums[i]-nums[i-1]>t){
+                    t=nums[i]-nums[i-1];
+                }
+            }
+        }
+        return t;
+    }
+}
